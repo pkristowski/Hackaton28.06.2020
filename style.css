@@ -1,15 +1,39 @@
 .raceTrack{
-    margin-left: 450px;
+    margin-left: 400px;
     margin-right: auto;
     background-color: blue;
-    width: 35%;
+    width: 38%;
     height: 98%;
     overflow: hidden;
     position: absolute;
 }
 .racingCar{
     margin-top: 480px;
-    padding-left: 100px;
+    padding-left: 400px;
+    padding-right: auto;
+    position: absolute;
+}
+.bumps{
+    padding-top: auto;
+    padding-left: auto;
+    padding-right: auto;
+    position: absolute;
+
+}
+#bump1{
+    margin-top: 0px;
+    padding-left: 414px;
+    padding-right: auto;
+    position: absolute;
+}
+#bump2{
+    margin-top: 0px;
+    padding-left: 315px;
+    padding-right: auto;
+    position: absolute;
+}#bump3{
+    margin-top: 0px;
+    padding-left: 116px;
     padding-right: auto;
     position: absolute;
 }
