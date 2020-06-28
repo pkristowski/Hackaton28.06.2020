@@ -66,12 +66,9 @@ document.addEventListener('keydown', function (event) {
 });
 
 function gameOver() {
-    alert("Game over!");
-    
+    //alert("Game over!");
 
-
-    document.getElementById("bumps").style.marginTop = 0 + "px";
-    document.getElementById('points').value = 1;
+    window.location.reload(true);
 
 }
 
