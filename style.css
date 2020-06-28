@@ -73,3 +73,22 @@
     padding-right: auto;
     position: absolute;
 }
+.pointCounter{
+    float: right;
+    padding-top:100px;
+    padding-right: 100px;
+}
+#level{
+    color: black;
+    font-size: 50px;
+    font-family: fantasy;
+}
+#points{
+    border-style: double;
+    padding-bottom: auto;
+    padding-top: 3px;
+    width: 60px;
+    font-size: 50px;
+    font-family: fantasy;
+
+}

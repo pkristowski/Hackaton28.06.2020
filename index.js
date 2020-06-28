@@ -104,7 +104,7 @@ function randomizeBumpPosition(pos1, pos2, pos3) {
     }
 
     var returnArray = [pos1, pos2, pos3];
-    console.log(returnArray);
+    //console.log(returnArray);
 
     return returnArray;
 }
@@ -125,6 +125,12 @@ function moveBumps() {
     }
     else {
         newPosition = 0;
+
+        //Increse level
+        var currentLevel = Number( document.getElementById('points').value);
+
+        console.log("current: ", currentLevel);
+        document.getElementById('points').value = currentLevel + 1;
 
         //Get left-rigth position of each bump
         var element1 = document.getElementById('bump1');
