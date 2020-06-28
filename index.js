@@ -65,6 +65,38 @@ document.addEventListener('keydown', function (event) {
 
 });
 
+function collisionHandler(buttonsPosition, button1, button2, button3) {
+    //Get positions of car and compare it to position of bumps. If they overlap, restart game;
+
+    //Get position of a car
+    var carElement = document.getElementById('racingCar')
+    var carStyle = window.getComputedStyle(carElement)
+    let currentCarPositionLeftRight = Number(carStyle.getPropertyValue('padding-left').replace("px", ""));
+    let currentCarPositionUpDown = Number(carStyle.getPropertyValue('margin-top').replace("px", ""));
+
+    var positions = [16, 116, 216, 315, 415];
+
+    console.log("Car position: ", currentCarPositionLeftRight, currentCarPositionUpDown);
+    console.log("Buttons position: ", buttonsPosition, button1, button2, button3);
+
+    //Get lanes with bumps
+    var currentBumpsPositions = [button1, button2, button3];
+    for (x = 0; x < currentBumpsPositions.length; x++) {
+        var positionIndex = positions.indexOf(currentBumpsPositions[x]);
+        if (positionIndex != -1) {
+            if ((currentCarPositionLeftRight - 400) / 100 == positionIndex) {
+                if (currentCarPositionUpDown == buttonsPosition + 40) {
+                    alert("collision!");
+                }
+            }
+            else {
+                console.log("No collision");
+            }
+            //fullLanes.push(positionIndex);
+        }
+    }
+}
+
 function randomizeBumpPosition(pos1, pos2, pos3) {
     //Posible positions
     var positions = [16, 116, 216, 315, 415];
@@ -120,32 +152,34 @@ function moveBumps() {
     console.log(currentPositionDiagonal);
     let newPosition = "";
 
+    //Get left-right position of each bump
+    var element1 = document.getElementById('bump1');
+    var style1 = window.getComputedStyle(element1)
+    let currentPositionHorizontal1 = Number(style1.getPropertyValue('padding-left').replace("px", ""));
+
+    var element2 = document.getElementById('bump2');
+    var style2 = window.getComputedStyle(element2)
+    let currentPositionHorizontal2 = Number(style2.getPropertyValue('padding-left').replace("px", ""));
+
+    var element3 = document.getElementById('bump3');
+    var style3 = window.getComputedStyle(element3)
+    let currentPositionHorizontal3 = Number(style3.getPropertyValue('padding-left').replace("px", ""));
+
+    console.log(currentPositionHorizontal1, currentPositionHorizontal2, currentPositionHorizontal3);
+
     if (currentPositionDiagonal <= 610) {
-        newPosition = currentPositionDiagonal + 1;
+        newPosition = currentPositionDiagonal + 10;
+
+        collisionHandler(newPosition, currentPositionHorizontal1, currentPositionHorizontal2, currentPositionHorizontal3);
     }
     else {
         newPosition = 0;
 
         //Increse level
-        var currentLevel = Number( document.getElementById('points').value);
+        var currentLevel = Number(document.getElementById('points').value);
 
         console.log("current: ", currentLevel);
         document.getElementById('points').value = currentLevel + 1;
-
-        //Get left-rigth position of each bump
-        var element1 = document.getElementById('bump1');
-        var style1 = window.getComputedStyle(element1)
-        let currentPositionHorizontal1 = Number(style1.getPropertyValue('padding-left').replace("px", ""));
-
-        var element2 = document.getElementById('bump2');
-        var style2 = window.getComputedStyle(element2)
-        let currentPositionHorizontal2 = Number(style2.getPropertyValue('padding-left').replace("px", ""));
-
-        var element3 = document.getElementById('bump3');
-        var style3 = window.getComputedStyle(element3)
-        let currentPositionHorizontal3 = Number(style3.getPropertyValue('padding-left').replace("px", ""));
-
-        console.log(currentPositionHorizontal1, currentPositionHorizontal2, currentPositionHorizontal3);
 
         //Randomize bumps position
         var randomPositions = randomizeBumpPosition(currentPositionHorizontal1, currentPositionHorizontal2, currentPositionHorizontal3);
@@ -159,4 +193,4 @@ function moveBumps() {
 
 }
 
-setInterval(() => { moveBumps() }, 5);
+setInterval(() => { moveBumps() }, 50);
