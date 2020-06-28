@@ -65,6 +65,16 @@ document.addEventListener('keydown', function (event) {
 
 });
 
+function gameOver() {
+    alert("Game over!");
+    
+
+
+    document.getElementById("bumps").style.marginTop = 0 + "px";
+    document.getElementById('points').value = 1;
+
+}
+
 function collisionHandler(buttonsPosition, button1, button2, button3) {
     //Get positions of car and compare it to position of bumps. If they overlap, restart game;
 
@@ -85,8 +95,8 @@ function collisionHandler(buttonsPosition, button1, button2, button3) {
         var positionIndex = positions.indexOf(currentBumpsPositions[x]);
         if (positionIndex != -1) {
             if ((currentCarPositionLeftRight - 400) / 100 == positionIndex) {
-                if (currentCarPositionUpDown == buttonsPosition + 40) {
-                    alert("collision!");
+                if (currentCarPositionUpDown <= buttonsPosition + 40 && currentCarPositionUpDown >= buttonsPosition - 60) {
+                    gameOver();
                 }
             }
             else {
