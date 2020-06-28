@@ -93,15 +93,17 @@
 
 }
 .gameOver{
-    margin-left: 450px;
+    margin-left: 0px;
     margin-right: auto;
     border-style: double;
+    overflow: hidden;
+    position: fixed;
     border-radius: 10%;
     border-color: darkred;
     border-width: 5px;
     background-color: black;
-    width: 380px;
-    font-size: 60px;
+    width: 350px;
+    font-size: 50px;
     color: red;
     display: none;
 }

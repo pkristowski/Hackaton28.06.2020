@@ -1,3 +1,5 @@
+var gameDelay = 50;
+
 document.addEventListener('keydown', function (event) {
     if (event.keyCode == 37) {
         console.log('Left was pressed');
@@ -68,7 +70,6 @@ function gameOver() {
 
     document.getElementById("gameOver").style.display = "block";
     console.log("end!")
-    setTimeout(2000);
     window.location.reload(true);
 
 }
@@ -201,4 +202,4 @@ function moveBumps() {
 
 }
 
-setInterval(() => { moveBumps() }, 50);
+setInterval(() => { moveBumps() }, gameDelay);
