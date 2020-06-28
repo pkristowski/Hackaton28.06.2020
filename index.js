@@ -1,4 +1,5 @@
-var gameDelay = 50;
+var gameDelay = 10;
+var scrollSpeed = 1;
 
 document.addEventListener('keydown', function (event) {
     if (event.keyCode == 37) {
@@ -66,11 +67,37 @@ document.addEventListener('keydown', function (event) {
 
 
 });
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 function gameOver() {
 
     document.getElementById("gameOver").style.display = "block";
     console.log("end!")
     window.location.reload(true);
+    gameDelay = 30;
+
+}
+
+function increaseDifficulty() {
+    var color = getRandomColor();
+    document.getElementById("raceTrack").style.backgroundColor = color;
+    if (gameDelay > 10) {
+        gameDelay = gameDelay - 10;
+    }
+    else if (gameDelay <= 10) {
+        gameDelay = 1;
+    }
+    else if(gameDelay == 1){
+        scrollSpeed = scrollSpeed + 10;
+    }
 
 }
 
@@ -177,7 +204,7 @@ function moveBumps() {
     console.log(currentPositionHorizontal1, currentPositionHorizontal2, currentPositionHorizontal3);
 
     if (currentPositionDiagonal <= 610) {
-        newPosition = currentPositionDiagonal + 10;
+        newPosition = currentPositionDiagonal + 5;
 
         collisionHandler(newPosition, currentPositionHorizontal1, currentPositionHorizontal2, currentPositionHorizontal3);
     }
@@ -188,7 +215,12 @@ function moveBumps() {
         var currentLevel = Number(document.getElementById('points').value);
 
         console.log("current: ", currentLevel);
-        document.getElementById('points').value = currentLevel + 1;
+        document.getElementById('points').value = currentLevel + scrollSpeed;
+
+        if (currentLevel % 5 == 0) {
+            increaseDifficulty();
+            console.log("Increase difficulty!");
+        }
 
         //Randomize bumps position
         var randomPositions = randomizeBumpPosition(currentPositionHorizontal1, currentPositionHorizontal2, currentPositionHorizontal3);
