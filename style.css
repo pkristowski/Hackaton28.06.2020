@@ -7,6 +7,42 @@
     overflow: hidden;
     position: absolute;
 }
+.lane1{
+    margin-left: 90px;
+    margin-right: auto;
+    border-style: dotted;
+    width: 0%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+.lane2{
+    margin-left: 190px;
+    margin-right: auto;
+    border-style: dotted;
+    width: 0%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+.lane3{
+    margin-left: 290px;
+    margin-right: auto;
+    border-style: dotted;
+    width: 0%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+.lane4{
+    margin-left: 390px;
+    margin-right: auto;
+    border-style: dotted;
+    width: 0%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+}
 .racingCar{
     margin-top: 480px;
     padding-left: 400px;

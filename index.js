@@ -104,6 +104,7 @@ function randomizeBumpPosition(pos1, pos2, pos3) {
     }
 
     var returnArray = [pos1, pos2, pos3];
+    console.log(returnArray);
 
     return returnArray;
 }
@@ -119,37 +120,37 @@ function moveBumps() {
     console.log(currentPositionDiagonal);
     let newPosition = "";
 
-    if (currentPositionDiagonal <= 540) {
-        newPosition = currentPositionDiagonal + 40;
+    if (currentPositionDiagonal <= 610) {
+        newPosition = currentPositionDiagonal + 1;
     }
     else {
         newPosition = 0;
+
+        //Get left-rigth position of each bump
+        var element1 = document.getElementById('bump1');
+        var style1 = window.getComputedStyle(element1)
+        let currentPositionHorizontal1 = Number(style1.getPropertyValue('padding-left').replace("px", ""));
+
+        var element2 = document.getElementById('bump2');
+        var style2 = window.getComputedStyle(element2)
+        let currentPositionHorizontal2 = Number(style2.getPropertyValue('padding-left').replace("px", ""));
+
+        var element3 = document.getElementById('bump3');
+        var style3 = window.getComputedStyle(element3)
+        let currentPositionHorizontal3 = Number(style3.getPropertyValue('padding-left').replace("px", ""));
+
+        console.log(currentPositionHorizontal1, currentPositionHorizontal2, currentPositionHorizontal3);
+
+        //Randomize bumps position
+        var randomPositions = randomizeBumpPosition(currentPositionHorizontal1, currentPositionHorizontal2, currentPositionHorizontal3);
+
+        document.getElementById("bump1").style.paddingLeft = randomPositions[0] + "px";
+        document.getElementById("bump2").style.paddingLeft = randomPositions[1] + "px";
+        document.getElementById("bump3").style.paddingLeft = randomPositions[2] + "px";
     }
-
-    document.getElementById("bumps").style.marginTop = newPosition + "px";
-
-    //Get left-rigth position of each bump
-    var element1 = document.getElementById('bump1');
-    var style1 = window.getComputedStyle(element1)
-    let currentPositionHorizontal1 = Number(style1.getPropertyValue('padding-left').replace("px", ""));
-
-    var element2 = document.getElementById('bump2');
-    var style2 = window.getComputedStyle(element2)
-    let currentPositionHorizontal2 = Number(style2.getPropertyValue('padding-left').replace("px", ""));
-
-    var element3 = document.getElementById('bump3');
-    var style3 = window.getComputedStyle(element3)
-    let currentPositionHorizontal3 = Number(style3.getPropertyValue('padding-left').replace("px", ""));
-
-    console.log(currentPositionHorizontal1, currentPositionHorizontal2, currentPositionHorizontal3);
-
-    //Randomize bumps position
-    var randomPositions = randomizeBumpPosition(currentPositionHorizontal1, currentPositionHorizontal2, currentPositionHorizontal3);
-
-    
 
     document.getElementById("bumps").style.marginTop = newPosition + "px";
 
 }
 
-setInterval(() => { moveBumps() }, 200);
+setInterval(() => { moveBumps() }, 5);
