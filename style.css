@@ -1,0 +1,15 @@
+.raceTrack{
+    margin-left: 450px;
+    margin-right: auto;
+    background-color: blue;
+    width: 35%;
+    height: 98%;
+    overflow: hidden;
+    position: absolute;
+}
+.racingCar{
+    margin-top: 480px;
+    padding-left: 100px;
+    padding-right: auto;
+    position: absolute;
+}
