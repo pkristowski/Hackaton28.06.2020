@@ -1,5 +1,5 @@
 .raceTrack{
-    margin-left: 31%;
+    margin-left: 400px;
     margin-right: auto;
     background-color: blue;
     width: 38%;
@@ -8,7 +8,7 @@
     position: absolute;
 }
 .lane1{
-    margin-left: 19%;
+    margin-left: 90px;
     margin-right: auto;
     border-style: dotted;
     width: 0%;
@@ -17,7 +17,7 @@
     position: absolute;
 }
 .lane2{
-    margin-left: 39%;
+    margin-left: 190px;
     margin-right: auto;
     border-style: dotted;
     width: 0%;
@@ -26,7 +26,7 @@
     position: absolute;
 }
 .lane3{
-    margin-left: 59%;
+    margin-left: 290px;
     margin-right: auto;
     border-style: dotted;
     width: 0%;
@@ -35,7 +35,7 @@
     position: absolute;
 }
 .lane4{
-    margin-left: 80%;
+    margin-left: 390px;
     margin-right: auto;
     border-style: dotted;
     width: 0%;
