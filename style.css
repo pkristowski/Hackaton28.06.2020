@@ -79,11 +79,27 @@
     padding-right: 100px;
 }
 #level{
+    margin-left:10px;
+    color: black;
+    font-size: 50px;
+    font-family: fantasy;
+}
+#maxLevelLable{
+    margin-left: 8px;
     color: black;
     font-size: 50px;
     font-family: fantasy;
 }
 #points{
+    border-style: double;
+    padding-bottom: auto;
+    padding-top: 3px;
+    width: 60px;
+    font-size: 50px;
+    font-family: fantasy;
+
+}
+#maxLevel{
     border-style: double;
     padding-bottom: auto;
     padding-top: 3px;
