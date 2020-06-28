@@ -65,14 +65,69 @@ document.addEventListener('keydown', function (event) {
 
 });
 
+function randomizeBumpPosition(pos1, pos2, pos3) {
+    //Posible positions
+    var positions = [16, 116, 216, 315, 415];
+
+    for (x = 1; x <= 3; x++) {
+        var singleItem = positions[Math.floor(Math.random() * positions.length)];
+        var index = 0;
+
+        switch (x) {
+            case 1:
+                //assign one of the array elements and remove it from the table
+                pos1 = singleItem;
+                index = positions.indexOf(singleItem);
+                if (index > -1) {
+                    positions.splice(index, 1);
+                }
+                break;
+
+            case 2:
+                //assign one of the array elements and remove it from the table
+                pos2 = singleItem;
+                index = positions.indexOf(singleItem);
+                if (index > -1) {
+                    positions.splice(index, 1);
+                }
+                break;
+
+            case 3:
+                //assign one of the array elements and remove it from the table
+                pos3 = singleItem;
+                index = positions.indexOf(singleItem);
+                if (index > -1) {
+                    positions.splice(index, 1);
+                }
+                break;
+        }
+    }
+
+    var returnArray = [pos1, pos2, pos3];
+
+    return returnArray;
+}
+
 function moveBumps() {
-    //16, 116, 216, 315, 415
 
     //Get up-down position of all bumps
     var element = document.getElementById('bumps');
     var style = window.getComputedStyle(element)
     let currentPositionDiagonal = Number(style.getPropertyValue('margin-top').replace("px", ""));
-    
+
+    //Set up-down position of all bumps
+    console.log(currentPositionDiagonal);
+    let newPosition = "";
+
+    if (currentPositionDiagonal <= 540) {
+        newPosition = currentPositionDiagonal + 40;
+    }
+    else {
+        newPosition = 0;
+    }
+
+    document.getElementById("bumps").style.marginTop = newPosition + "px";
+
     //Get left-rigth position of each bump
     var element1 = document.getElementById('bump1');
     var style1 = window.getComputedStyle(element1)
@@ -88,15 +143,10 @@ function moveBumps() {
 
     console.log(currentPositionHorizontal1, currentPositionHorizontal2, currentPositionHorizontal3);
 
-    console.log(currentPositionDiagonal);
-    let newPosition = "";
+    //Randomize bumps position
+    var randomPositions = randomizeBumpPosition(currentPositionHorizontal1, currentPositionHorizontal2, currentPositionHorizontal3);
 
-    if (currentPositionDiagonal <= 540) {
-        newPosition = currentPositionDiagonal + 40;
-    }
-    else{
-        newPosition = 0;
-    }
+    
 
     document.getElementById("bumps").style.marginTop = newPosition + "px";
 
