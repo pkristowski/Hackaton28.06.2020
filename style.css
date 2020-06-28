@@ -92,3 +92,16 @@
     font-family: fantasy;
 
 }
+.gameOver{
+    margin-left: 450px;
+    margin-right: auto;
+    border-style: double;
+    border-radius: 10%;
+    border-color: darkred;
+    border-width: 5px;
+    background-color: black;
+    width: 380px;
+    font-size: 60px;
+    color: red;
+    display: none;
+}

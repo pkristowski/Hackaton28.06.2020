@@ -64,10 +64,11 @@ document.addEventListener('keydown', function (event) {
 
 
 });
-
 function gameOver() {
-    //alert("Game over!");
 
+    document.getElementById("gameOver").style.display = "block";
+    console.log("end!")
+    setTimeout(2000);
     window.location.reload(true);
 
 }
